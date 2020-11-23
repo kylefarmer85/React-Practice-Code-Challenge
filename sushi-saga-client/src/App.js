@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SushiContainer from './containers/SushiContainer';
 import Table from './containers/Table';
+import Form from './components/Form'
 
 // Endpoint!
 const API = "http://localhost:3000/sushis"
@@ -40,6 +41,7 @@ class App extends Component {
         return sushiObj
       }
     })
+
     this.setState({
       sushis: updateEatenToTrue
     })
@@ -48,8 +50,7 @@ class App extends Component {
       return {
         money: prevState.money - price
       }
-    }
-    )
+    })
 
     this.setState(prevState => {
       return {
@@ -59,6 +60,11 @@ class App extends Component {
   }
 
   serveSushi = () => {
+    if (this.state.index === 100) {
+      this.setState({
+        index: 0
+      })
+    }
     return this.state.sushis.slice(this.state.index, this.state.index + 4)
   }
 
@@ -70,12 +76,25 @@ class App extends Component {
     })
   }
 
+  addMoney = (amount) => {
+    this.setState(prevState => {
+      return {
+        money: prevState.money += parseInt(amount)
+      }
+    })
+  }
+
   render() {
     
     return (
       <div className="app">
+
+        <Form addMoney={this.addMoney}/>
+
         <SushiContainer eatSushi={this.eatSushi} sushis={this.serveSushi()} moreSushi={this.moreSushi} />
+
         <Table money={this.state.money} emptyPlates={this.state.emptyPlates} />
+
       </div>
     );
   }

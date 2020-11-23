@@ -4,7 +4,6 @@ body {
   font-family: sans-serif;
 }
 
-
 .app {
   display: grid;
   grid-template-columns: repeat(5, 1fr, 2fr, 2fr, 2fr, 1fr);
