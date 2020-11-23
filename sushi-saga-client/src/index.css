@@ -1,7 +1,13 @@
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+
+.form-div {
+  text-align: center;
 }
 
 .app {
@@ -21,6 +27,7 @@ body {
   grid-area: rm;
   margin: auto;
 }
+
 
 .plate {
   background-image: url("http://www.clker.com/cliparts/9/9/f/0/1194984076762834840small_plate.svg.hi.png");

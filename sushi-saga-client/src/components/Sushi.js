@@ -1,17 +1,19 @@
 import React, { Fragment } from 'react'
 
-const Sushi = ({id, name, img_url, price, eaten, eatSushi}) => {
+const Sushi = ({key, id, name, img_url, price, eaten, eatSushi}) => {
+  
+
   
   return (
     
-    <div className="sushi" key={id}>
-      <div className="plate" 
-      
-           onClick={() => eatSushi(id, price)}>
-        {  eaten ?
+    <div className="sushi" key={key}>
+
+      <div className="plate" >
+        {  
+          eaten ?
             null
           :
-            <img src={ img_url } width="100%" />
+            <img src={ img_url } width="100%" onClick={() => eatSushi(id, price)}/>
         }
       </div>
      
